@@ -1,11 +1,11 @@
+#!/usr/bin/env python
 import re
 import Projectiles
 
 
-
 def main():
     while(True):
-        problem = input("Enter Problem Here or type 'manual' for manual data input")
+        problem = raw_input("Enter Problem Here or type 'manual' for manual data input")
         if(problem == "end"):
             return
         elif("manual" in problem.lower()):
@@ -43,11 +43,11 @@ def process(problem):
     #print(questions)
     #print(parameters)
             
-    if(("fall" in q for q in questions or hotword in p for hotword in projectileKeywords for p in parameters) and "y" in input("Is this a Free Fall Problem? (Y/N)").lower()):
+    if((("fall" in q for q in questions) or (hotword in p for hotword in projectileKeywords for p in parameters))): # and "y" in raw_input("Is this a Free Fall Problem? (Y/N)").lower()):
         for q in questions:
             Projectiles.interpret(q, parameters, "angle" in problem or "theta" in problem, "velocity" in problem or "speed" in problem)
             
     else:
         print("unrecognized problem type")
 
-main()
+print "Running"

@@ -1,3 +1,5 @@
+import Text
+
 def formatOutput(result):
     output = ""
     for index, res in enumerate(result):
@@ -5,6 +7,7 @@ def formatOutput(result):
             output += str(res)[:5] + result[index+1] + ","
     output = output[:-1]
     print(output)
+    Text.sendText(output)
 
 def getNumber(words):
     for word in words:

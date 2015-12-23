@@ -71,7 +71,7 @@ def manualInput():
     solveFor = []
     print("Please input all data in SI units. For any unknown values, type ? if you're looking to calculate that value, or - if it does not need to be solved for")
     for index, element in enumerate(variables):
-        response = input("Value of " + str(element) + "?")
+        response = raw_input("Value of " + str(element) + "?")
         try:
             data.append(float((response).split(" ")[0]))
         except:
@@ -88,6 +88,7 @@ def manualInput():
 def solveAll(data, solveFor):
     for solveMe in solveFor:
         out = solve(data, solveMe)
+       
         if(out != None):
             Util.formatOutput(out)
 
